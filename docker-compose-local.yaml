@@ -1,10 +1,8 @@
-version: "3.7"
-
 services:
   # This service runs the postgres DB used by dagster for run storage, schedule storage,
   # and event log storage.
   dagster_postgresql:
-    image: postgres:11
+    image: postgres:16
     container_name: dagster_postgresql
     environment:
       POSTGRES_USER: "postgres_user"
@@ -82,7 +80,7 @@ services:
     container_name: dagster_daemon
     image: dagster_daemon_image
     restart: on-failure
-  # Make sure to use the same environment vars as the dagster_pipelines service
+    # Make sure to use the same environment vars as the dagster_pipelines service
     environment:
       DAGSTER_POSTGRES_HOSTNAME: "${DAGSTER_POSTGRES_HOSTNAME}"
       DAGSTER_POSTGRES_USER: "${DAGSTER_POSTGRES_USER}"

@@ -8,7 +8,7 @@ format: dev  ## Scan and format all files with pre-commit
 	poetry run pre-commit run --all-files
 
 compose-up:
-	docker-compose -f docker-compose-local.yaml up -d
+	docker compose -f docker-compose-local.yaml up -d
 
 compose-down:
-	docker-compose -f docker-compose-local.yaml down -v
+	docker compose -f docker-compose-local.yaml down -v
